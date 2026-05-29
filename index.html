@@ -75,37 +75,49 @@
         }
 
         /* --------------------------------------------------
-           1. 核心修正：使用 CSS3 硬體加速代替傳統 marquee 防止卡頓
+           1. 核心修正：大聲公 Icon 防壓字高流暢跑馬燈
         ----------------------------------------------------- */
         .announcement-bar {
             background-color: rgba(255, 0, 127, 0.06);
             border: 1px solid rgba(255, 0, 127, 0.15);
             margin: 12px;
-            padding: 8px 12px;
+            padding: 8px 0; /* 左右移除 padding，由內部遮罩控制 */
             border-radius: 6px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            overflow: hidden; /* 隱藏超出邊界的文字 */
             position: relative;
+            overflow: hidden;
         }
 
-        .announcement-bar i {
+        /* 固定在最左側的大聲公防護外殼 */
+        .announcement-icon-label {
+            background-color: #000000; /* 使用遮罩黑底擋在最前方，防止文字穿透 */
             color: var(--neon-pink-main);
             font-size: 0.9rem;
-            flex-shrink: 0;
-            background-color: #000; /* 擋在最前方，防止文字穿透圖示 */
-            z-index: 5;
-            padding-right: 5px;
+            padding: 0 12px;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            z-index: 10; /* 確保層級最高，文字滾動時會完美隱沒在它後方 */
+            box-shadow: 4px 0 10px #000000; /* 給予微弱陰影，讓文字淡出感更自然 */
         }
 
-        /* 高流暢跑馬燈軌道 */
+        /* 跑馬燈可視滑動區域 */
+        .marquee-window {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 高流暢跑馬燈軌道（CSS3 GPU 硬體加速） */
         .marquee-track {
             display: inline-block;
             white-space: nowrap;
-            padding-left: 100%; /* 從最右側外面開始進場 */
-            animation: smooth-marquee 18s linear infinite; /* 控制滾動速度 */
-            will-change: transform; /* 強制啟動 GPU 硬體加速 */
+            padding-left: 100%; /* 從可視視窗最右側進場 */
+            animation: smooth-marquee 22s linear infinite; /* 稍微拉長秒數，確保新長文案體感速度適中 */
+            will-change: transform;
             font-weight: bold;
             font-size: 0.85rem;
             color: var(--text-pure-white);
@@ -116,12 +128,13 @@
                 transform: translate3d(0, 0, 0);
             }
             100% {
-                transform: translate3d(-100%, 0, 0); /* 完美平滑滑動到最左側 */
+                transform: translate3d(-100%, 0, 0);
             }
         }
 
-        .announcement-bar span.highlight-pink {
+        .marquee-track span.highlight-pink {
             color: var(--neon-pink-main);
+            text-shadow: 0 0 5px rgba(255, 0, 127, 0.3);
         }
 
         /* 廣告外殼 (4:1 比例) */
@@ -221,13 +234,11 @@
             box-shadow: 0 6px 15px rgba(255, 0, 127, 0.35);
         }
 
-        /* --------------------------------------------------
-           3. 核心修正：將小標籤（角標）從左上角移到右上角
-        ----------------------------------------------------- */
+        /* 小標籤（角標）貼齊右上角 */
         .recommend-tag {
             position: absolute;
             top: 4px;
-            right: 4px; /* 從原本的 left 修改為 right，完美貼齊右上角 */
+            right: 4px; 
             background: var(--neon-pink-main);
             color: white;
             font-size: 0.6rem;
@@ -296,9 +307,7 @@
             margin: 25px 12px;
         }
 
-        /* --------------------------------------------------
-           2. 核心修正：將 Footer 的上下寬度增寬（增加 padding）
-        ----------------------------------------------------- */
+        /* 永遠懸浮固定且上下「加寬」加厚後的 Footer 區塊 */
         footer {
             position: fixed;        
             bottom: 0;
@@ -308,7 +317,7 @@
             max-width: 480px;       
             background-color: #050508;
             border-top: 2px solid var(--neon-pink-main);
-            padding: 26px 15px; /* 上下內邊距從 18px 加寬放大到 26px，視覺效果與觸控更完美 */
+            padding: 26px 15px; 
             box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.9);
             z-index: 999;           
         }
@@ -331,7 +340,7 @@
             align-items: center;
             background-color: rgba(255, 0, 127, 0.12);
             border: 1px dashed var(--neon-pink-main);
-            padding: 4px 12px; /* 複製框本身也稍微放大，更好按 */
+            padding: 4px 12px; 
             border-radius: 5px;
             cursor: pointer;
             margin: 0 4px;
@@ -358,7 +367,7 @@
             display: block;
             font-size: 0.82rem;
             color: #ff3b30;
-            margin-top: 8px; /* 加大文案上下間距 */
+            margin-top: 8px; 
             font-weight: bold;
         }
 
@@ -396,9 +405,13 @@
         </div>
 
         <div class="announcement-bar">
-            <i class="fa-solid fa-bullhorn"></i>
-            <div class="marquee-track">
-                重要提示：新註冊用戶綁定手機並輸入推薦碼『<span class="highlight-pink">10TV2026</span>』免費領取 1000 鑽石，滑到下方一鍵複製推薦碼
+            <div class="announcement-icon-label">
+                <i class="fa-solid fa-bullhorn"></i>
+            </div>
+            <div class="marquee-window">
+                <div class="marquee-track">
+                    『十日谈TV』Youtube 頻道粉絲專屬優惠：新註冊用戶入專屬推薦碼『<span class="highlight-pink">10TV2026</span>』並完成手機綁定，免費送你 1,000 鑽
+                </div>
             </div>
         </div>
 
