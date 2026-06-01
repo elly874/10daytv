@@ -135,7 +135,7 @@
             text-shadow: 0 0 5px rgba(255, 0, 127, 0.3);
         }
 
-        /* 广告外壳 (4:1 比例) */
+        /* 顶部广告外壳 (4:1 比例) */
         .banner-slider-container {
             margin: 0 12px 15px;
             position: relative;
@@ -145,22 +145,24 @@
             border: 1px solid var(--border-color-visible);
         }
 
-        /* 中间独立 BN 外壳 (4:1 比例) */
+        /* --------------------------------------------------
+           核心修正：中间独立 AI 广告横幅精准锁定為 1:1 正方形比例
+        ----------------------------------------------------- */
         .mid-banner-container {
             margin: 25px 12px 15px;
             display: block;
-            aspect-ratio: 1200 / 300;
+            aspect-ratio: 1 / 1; /* 完美契合 1:1 正方形图档，保证完全不压扁、不变形 */
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid var(--border-color-visible);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.5);
             text-decoration: none;
         }
 
         .mid-banner-container img {
             width: 100%;
             height: 100%;
-            object-fit: fill;
+            object-fit: cover; /* 完美满版覆盖撑满正方形区块 */
             display: block;
         }
 
@@ -602,6 +604,7 @@
     <div id="toast" class="toast-popup">✓ 推荐码已复制成功</div>
 
     <script>
+        // 一键复制功能
         function copyNavCode() {
             const text = document.getElementById('targetCode').innerText;
             navigator.clipboard.writeText(text).then(() => {
