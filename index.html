@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWAG MATRIX - 华语独家顶级入口</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Noto+Sans+SC:wght@500;700&display=swap" rel="stylesheet">
+    <title>SWAG MATRIX - 華語獨家頂級入口</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Noto+Sans+TC:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-body-dark: #000000;      /* 全屏幕背景：纯黑 */
-            --bg-phone-center: #000000;   /* 手机壳主体：纯黑 */
-            --bg-card-visible: #16161f;   /* 高级轻碳灰 */
-            --neon-pink-main: #ff007f;    /* 核心荧光桃红 */
+            --bg-body-dark: #000000;      /* 全螢幕背景：純黑 */
+            --bg-phone-center: #000000;   /* 手機殼主體：純黑 */
+            --bg-card-visible: #16161f;   /* 高級輕碳灰 */
+            --neon-pink-main: #ff007f;    /* 核心螢光桃紅 */
             --text-pure-white: #ffffff;
             --text-gray-muted: #8e9cae;
-            --border-color-visible: #252532; /* 平时就看得见的细边框 */
+            --border-color-visible: #252532; /* 平時就看得見的細邊框 */
         }
 
         * {
@@ -25,7 +25,7 @@
         }
 
         body {
-            font-family: 'Noto Sans SC', sans-serif;
+            font-family: 'Noto Sans TC', sans-serif;
             background-color: var(--bg-body-dark);
             color: var(--text-pure-white);
             line-height: 1.4;
@@ -33,7 +33,7 @@
             justify-content: center;
         }
 
-        /* 锁定细长条型手机排版 */
+        /* 鎖定細長條型手機排版 */
         .page-phone-wrapper {
             width: 100%;
             max-width: 480px; 
@@ -41,11 +41,11 @@
             min-height: 100vh;
             border-left: 1px solid #1a1a24;
             border-right: 1px solid #1a1a24;
-            padding-bottom: 160px; /* 增加底部留白，防止被加宽后的 Footer 挡到内容 */
+            padding-bottom: 160px; /* 增加底部留白，防止被加寬後的 Footer 擋到內容 */
             position: relative;
         }
 
-        /* 顶部导航条 */
+        /* 頂部導航條 */
         .nav-header {
             background-color: #050508;
             padding: 18px 15px;
@@ -74,12 +74,14 @@
             display: block;
         }
 
-        /* 大声公固定防压字高流畅跑马灯 */
+        /* --------------------------------------------------
+           1. 核心修正：大聲公 Icon 防壓字高流暢跑馬燈
+        ----------------------------------------------------- */
         .announcement-bar {
             background-color: rgba(255, 0, 127, 0.06);
             border: 1px solid rgba(255, 0, 127, 0.15);
             margin: 12px;
-            padding: 8px 0; 
+            padding: 8px 0; /* 左右移除 padding，由內部遮罩控制 */
             border-radius: 6px;
             display: flex;
             align-items: center;
@@ -87,20 +89,20 @@
             overflow: hidden;
         }
 
-        /* 固定在最左侧的大声公防护外壳 */
+        /* 固定在最左側的大聲公防護外殼 */
         .announcement-icon-label {
-            background-color: #000000; 
+            background-color: #000000; /* 使用遮罩黑底擋在最前方，防止文字穿透 */
             color: var(--neon-pink-main);
             font-size: 0.9rem;
             padding: 0 12px;
             display: flex;
             align-items: center;
             height: 100%;
-            z-index: 10; 
-            box-shadow: 4px 0 10px #000000; 
+            z-index: 10; /* 確保層級最高，文字滾動時會完美隱沒在它後方 */
+            box-shadow: 4px 0 10px #000000; /* 給予微弱陰影，讓文字淡出感更自然 */
         }
 
-        /* 跑马灯可视滑动区域 */
+        /* 跑馬燈可視滑動區域 */
         .marquee-window {
             width: 100%;
             overflow: hidden;
@@ -109,12 +111,12 @@
             align-items: center;
         }
 
-        /* 高流畅跑马灯轨道（CSS3 GPU 硬件加速） */
+        /* 高流暢跑馬燈軌道（CSS3 GPU 硬體加速） */
         .marquee-track {
             display: inline-block;
             white-space: nowrap;
-            padding-left: 100%; 
-            animation: smooth-marquee 22s linear infinite; 
+            padding-left: 100%; /* 從可視視窗最右側進場 */
+            animation: smooth-marquee 22s linear infinite; /* 稍微拉長秒數，確保新長文案體感速度適中 */
             will-change: transform;
             font-weight: bold;
             font-size: 0.85rem;
@@ -135,7 +137,7 @@
             text-shadow: 0 0 5px rgba(255, 0, 127, 0.3);
         }
 
-        /* 顶部广告外壳 (4:1 比例) */
+        /* 廣告外殼 (4:1 比例) */
         .banner-slider-container {
             margin: 0 12px 15px;
             position: relative;
@@ -145,22 +147,22 @@
             border: 1px solid var(--border-color-visible);
         }
 
-        /* 中间独立 AI 广告横幅 */
+        /* 中間獨立 BN 外殼 (4:1 比例) */
         .mid-banner-container {
             margin: 25px 12px 15px;
             display: block;
-            aspect-ratio: 1 / 1; 
+            aspect-ratio: 1200 / 300;
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid var(--border-color-visible);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
             text-decoration: none;
         }
 
         .mid-banner-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover; 
+            object-fit: fill;
             display: block;
         }
 
@@ -188,7 +190,7 @@
             display: block;
         }
 
-        /* 区域标题 */
+        /* 區域標題 */
         .zone-header {
             font-size: 1.1rem;
             font-weight: 700;
@@ -201,7 +203,7 @@
             padding-left: 8px;
         }
 
-        /* 三个一列 (3-Column Grid) 排版 */
+        /* 三個一列 (3-Column Grid) 排版 */
         .navigation-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr); 
@@ -209,7 +211,7 @@
             padding: 0 12px;
         }
 
-        /* 平时就看得到一格一格的微亮背景色与细边框 */
+        /* 平時就看得到一格一格的微亮背景色與細邊框 */
         .nav-item-card {
             background-color: var(--bg-card-visible);
             border: 1px solid var(--border-color-visible);
@@ -224,7 +226,7 @@
             transition: all 0.2s ease-in-out;
         }
 
-        /* 指标指到时 */
+        /* 指標指到時 */
         .nav-item-card:hover {
             background-color: #1d1d2a;
             border-color: var(--neon-pink-main);
@@ -232,7 +234,7 @@
             box-shadow: 0 6px 15px rgba(255, 0, 127, 0.35);
         }
 
-        /* 小标签（角标）贴齐右上角 */
+        /* 小標籤（角標）貼齊右上角 */
         .recommend-tag {
             position: absolute;
             top: 4px;
@@ -248,7 +250,7 @@
             box-shadow: 0 0 5px var(--neon-pink-main);
         }
 
-        /* 大圆角正方形外壳 */
+        /* 大圓角正方形外殼 */
         .app-icon-wrap {
             width: 100%;
             aspect-ratio: 1 / 1;
@@ -278,7 +280,7 @@
             width: 100%;
         }
 
-        /* 进入按钮 */
+        /* 進入按鈕 */
         .btn-enter-site {
             width: 95%;
             padding: 4px 0;
@@ -298,14 +300,14 @@
             border-color: var(--neon-pink-main);
         }
 
-        /* 分隔线 */
+        /* 分隔線 */
         .divider-line {
             height: 1px;
             background-color: #161622;
             margin: 25px 12px;
         }
 
-        /* 永远悬浮固定且上下「加宽」加厚后的 Footer 区块 */
+        /* 永遠懸浮固定且上下「加寬」加厚後的 Footer 區塊 */
         footer {
             position: fixed;        
             bottom: 0;
@@ -332,7 +334,7 @@
             line-height: 1.6;
         }
 
-        /* 一键复制框 */
+        /* 一鍵複製框 */
         .nav-copy-box {
             display: inline-flex;
             align-items: center;
@@ -369,7 +371,7 @@
             font-weight: bold;
         }
 
-        /* 复制成功弹出提示 */
+        /* 複製成功彈出提示 */
         .toast-popup {
             position: fixed;
             top: 30px;
@@ -408,66 +410,66 @@
             </div>
             <div class="marquee-window">
                 <div class="marquee-track">
-                    『十日谈TV』Youtube 频道粉丝专属优惠：新注册用户入专属推荐码『<span class="highlight-pink">10TV2026</span>』并完成手机绑定，免费送你 1,000 钻
+                    『十日谈TV』Youtube 頻道粉絲專屬優惠：新註冊用戶入專屬推薦碼『<span class="highlight-pink">10TV2026</span>』並完成手機綁定，免費送你 1,000 鑽
                 </div>
             </div>
         </div>
 
         <div class="banner-slider-container">
             <a href="https://sw-move.com/Zd6Ah" target="_blank" class="slide-item active">
-                <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/BN-%E7%BE%A5%E6%B6%A9%E9%82%B3%E5%AE%B6%E7%B3%BB%E7%B4%A0%E4%BA%BA%E5%87%BA%E9%81%93%E4%BD%9C.gif" alt="羞涩邻家系素人出道作1">
+                <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/BN-%E5%A5%B3%E5%A4%A7%E5%AD%B8%E7%94%9F%E7%9A%84%E7%BE%9E%E6%81%A5%E7%A7%98%E5%AF%86.gif" alt="女大學生的羞恥秘密">
             </a>
             <a href="https://sw-move.com/X2IDt" target="_blank" class="slide-item">
-                <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/BN-%E7%BE%9E%E6%BE%80%E9%84%B0%E5%AE%B6%E7%B3%BB%E7%B4%A0%E4%BA%BA%E5%87%BA%E9%81%93%E4%BD%9C.gif" alt="羞涩邻家系素人出道作2">
+                <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/BN-%E7%BE%9E%E6%BE%80%E9%84%B0%E5%AE%B6%E7%B3%BB%E7%B4%A0%E4%BA%BA%E5%87%BA%E9%81%93%E4%BD%9C.gif" alt="羞澀鄰家系素人出道作">
             </a>
             <a href="https://swa9.xyz/JR3w2" target="_blank" class="slide-item">
-                <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/BN-%E9%AB%98%E5%AD%A6%E5%8E%86%E8%B6%85%E7%BE%8E%E8%83%B8%E5%AD%A6%E9%9F%B8%E7%BE%8E%E5%A5%B3%EF%BC%81.gif" alt="高学历超美胸学霸美女！">
+                <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/BN-%E5%A5%B3%E5%AD%90%E5%9C%96%E9%91%91-072-%E9%AB%98%E5%AD%B8%E6%AD%B7%E8%B6%85%E7%BE%8E%E8%83%B8%E5%AD%B8%E9%9C%B8%E7%BE%8E%E5%A5%B3%EF%BC%81.gif" alt="女子圖鑑-072">
             </a>
             <a href="https://swag.run/73oHJ" target="_blank" class="slide-item">
-                <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/BN-%E9%BA%BB%E8%B1%86%E7%BB%8F%E5%8D%8E.gif" alt="麻豆精华">
+                <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/BN-%E9%BA%BB%E8%B1%86%E7%B2%BE%E8%8F%AF.gif" alt="麻豆精華">
             </a>
         </div>
 
         <div class="zone-header">
-            麻豆女神专区
+            麻豆女神專區
         </div>
 
         <div class="navigation-grid">
             
             <a href="https://swa9.xyz/7DQSy" target="_blank" class="nav-item-card">
-                <div class="recommend-tag">热推</div>
+                <div class="recommend-tag">熱推</div>
                 <div class="app-icon-wrap">
-                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E8%98%87%E6%9A%A2.gif" alt="苏畅">
+                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E8%98%87%E6%9A%A2.gif" alt="蘇暢">
                 </div>
-                <div class="app-title">苏畅</div>
-                <div class="btn-enter-site">立即进入</div>
+                <div class="app-title">蘇暢</div>
+                <div class="btn-enter-site">立即進入</div>
             </a>
 
             <a href="https://swa9.xyz/FCjW3" target="_blank" class="nav-item-card">
-                <div class="recommend-tag">精选</div>
+                <div class="recommend-tag">精選</div>
                 <div class="app-icon-wrap">
                     <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E8%8A%B7%E5%AA%97%20%40candy_muwanna.gif" alt="芷媗">
                 </div>
                 <div class="app-title">芷媗</div>
-                <div class="btn-enter-site">立即进入</div>
+                <div class="btn-enter-site">立即進入</div>
             </a>
 
             <a href="https://swa9.xyz/9382x" target="_blank" class="nav-item-card">
                 <div class="recommend-tag">爆款</div>
                 <div class="app-icon-wrap">
-                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E7%B1%B3%E6%AD%90Mio%20%40miohot.gif" alt="米欧 Mio">
+                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E7%B1%B3%E6%AD%90Mio%20%40miohot.gif" alt="米歐 Mio">
                 </div>
-                <div class="app-title">米欧 Mio</div>
-                <div class="btn-enter-site">立即进入</div>
+                <div class="app-title">米歐 Mio</div>
+                <div class="btn-enter-site">立即進入</div>
             </a>
 
             <a href="https://swa9.xyz/fqb1M" target="_blank" class="nav-item-card">
-                <div class="recommend-tag">强推</div>
+                <div class="recommend-tag">強推</div>
                 <div class="app-icon-wrap">
                     <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E8%89%BE%E7%86%99%20Ashley%20%40_ai_xi_bb.gif" alt="艾熙 Ashley">
                 </div>
                 <div class="app-title">艾熙 Ashley</div>
-                <div class="btn-enter-site">立即进入</div>
+                <div class="btn-enter-site">立即進入</div>
             </a>
 
             <a href="https://swa9.xyz/5oCTz" target="_blank" class="nav-item-card">
@@ -476,7 +478,7 @@
                     <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E6%9E%97%E6%80%9D%E5%A6%A4%20%40linsubaby.gif" alt="林思妤">
                 </div>
                 <div class="app-title">林思妤</div>
-                <div class="btn-enter-site">立即进入</div>
+                <div class="btn-enter-site">立即進入</div>
             </a>
 
             <a href="https://swa9.xyz/fHEbZ" target="_blank" class="nav-item-card">
@@ -485,17 +487,17 @@
                     <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E5%B0%8F%E5%B7%B4%20%40whitetiger_yl.gif" alt="小巴">
                 </div>
                 <div class="app-title">小巴</div>
-                <div class="btn-enter-site">立即进入</div>
+                <div class="btn-enter-site">立即進入</div>
             </a>
 
         </div>
 
         <a href="https://sw-move.com/7DCwb" target="_blank" class="mid-banner-container">
-            <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E8%80%81%E5%8F%B8%E6%A9%9F_%E5%AE%A2%E8%A3%BDAI%E5%8B%95%E6%85%8B%E5%BB%A3%E5%91%8A_1_1.gif" alt="老司机客制广告">
+            <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/BN-%E5%B0%8E%E8%88%AA%E7%B6%B2.gif" alt="導航網推廣橫幅">
         </a>
 
         <div class="zone-header">
-            开拓感官极限
+            更多華語片商
         </div>
 
         <div class="navigation-grid">
@@ -505,80 +507,80 @@
                 <div class="app-icon-wrap">
                     <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/SWAG%20%E5%AE%98%E6%96%B9%E9%95%B7%E7%89%87%20%40swag.jpg" alt="SWAG">
                 </div>
-                <div class="app-title">SWAG 官方长片</div>
-                <div class="btn-enter-site">立即进入</div>
+                <div class="app-title">SWAG 官方長片</div>
+                <div class="btn-enter-site">立即進入</div>
             </a>
 
             <a href="https://swa9.xyz/A4KhQ" target="_blank" class="nav-item-card">
-                <div class="recommend-tag">推荐</div>
+                <div class="recommend-tag">推薦</div>
                 <div class="app-icon-wrap">
-                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E5%A4%A7%E8%B1%A1%E5%82%B3%E5%AA%92%20%40daxiangtw.jpg" alt="大象传媒">
+                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E5%A4%A7%E8%B1%A1%E5%82%B3%E5%AA%92%20%40daxiangtw.jpg" alt="大象傳媒">
                 </div>
-                <div class="app-title">大象传媒</div>
-                <div class="btn-enter-site">立即进入</div>
+                <div class="app-title">大象傳媒</div>
+                <div class="btn-enter-site">立即進入</div>
             </a>
 
             <a href="https://swa9.xyz/Bujwa" target="_blank" class="nav-item-card">
-                <div class="recommend-tag">优选</div>
+                <div class="recommend-tag">優選</div>
                 <div class="app-icon-wrap">
-                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E6%B8%A1%E9%82%8A%E5%82%B3%E5%AA%92%20%40dobanmedia.jpg" alt="渡边传媒">
+                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E6%B8%A1%E9%82%8A%E5%82%B3%E5%AA%92%20%40dobanmedia.jpg" alt="渡邊傳媒">
                 </div>
-                <div class="app-title">渡边传媒</div>
-                <div class="btn-enter-site">立即进入</div>
+                <div class="app-title">渡邊傳媒</div>
+                <div class="btn-enter-site">立即進入</div>
             </a>
 
             <a href="https://swa9.xyz/ii9mT" target="_blank" class="nav-item-card">
-                <div class="recommend-tag">经典</div>
+                <div class="recommend-tag">經典</div>
                 <div class="app-icon-wrap">
-                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E9%BA%BB%E8%B1%86%E5%82%B3%E5%AA%92%E6%98%A0%E7%95%AB%20%EF%BC%A0modelmedia.jpg" alt="麻豆传媒映画">
+                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E9%BA%BB%E8%B1%86%E5%82%B3%E5%AA%92%E6%98%A0%E7%95%AB%20%EF%BC%A0modelmedia.jpg" alt="麻豆傳媒映畫">
                 </div>
-                <div class="app-title">麻豆传媒映画</div>
-                <div class="btn-enter-site">立即进入</div>
+                <div class="app-title">麻豆傳媒映畫</div>
+                <div class="btn-enter-site">立即進入</div>
             </a>
 
             <a href="https://swa9.xyz/sEOXp" target="_blank" class="nav-item-card">
-                <div class="recommend-tag">解压</div>
+                <div class="recommend-tag">解碼</div>
                 <div class="app-icon-wrap">
                     <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/ED%20MOSAIC%20%40ed_mosaic.jpg" alt="ED MOSAIC">
                 </div>
                 <div class="app-title">ED MOSAIC</div>
-                <div class="btn-enter-site">立即进入</div>
+                <div class="btn-enter-site">立即進入</div>
             </a>
 
             <a href="https://sw-move.com/wQXFM" target="_blank" class="nav-item-card">
-                <div class="recommend-tag">新进</div>
+                <div class="recommend-tag">新進</div>
                 <div class="app-icon-wrap">
-                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E5%A4%A9%E4%BD%BF%E6%98%A0%E7%95%AB%40AN9TV.jpg" alt="天使映画">
+                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E5%A4%A9%E4%BD%BF%E6%98%A0%E7%95%AB%40AN9TV.jpg" alt="天使映畫">
                 </div>
-                <div class="app-title">天使映画</div>
-                <div class="btn-enter-site">立即进入</div>
+                <div class="app-title">天使映畫</div>
+                <div class="btn-enter-site">立即進入</div>
             </a>
 
             <a href="https://sw-move.com/7axlJ" target="_blank" class="nav-item-card">
-                <div class="recommend-tag">精选</div>
+                <div class="recommend-tag">精選</div>
                 <div class="app-icon-wrap">
                     <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E9%9D%9E%E5%B8%B8%E5%A5%BD%E8%89%B2%40syc.3.jpg" alt="非常好色">
                 </div>
                 <div class="app-title">非常好色</div>
-                <div class="btn-enter-site">立即进入</div>
+                <div class="btn-enter-site">立即進入</div>
             </a>
 
             <a href="https://sw-move.com/8L0Kw" target="_blank" class="nav-item-card">
-                <div class="recommend-tag">强推</div>
+                <div class="recommend-tag">強推</div>
                 <div class="app-icon-wrap">
-                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E8%9C%9C%E6%A1%83%E5%82%B3%E5%AA%92%40peachmedia.jpg" alt="蜜桃传媒">
+                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E8%9C%9C%E6%A1%83%E5%82%B3%E5%AA%92%40peachmedia.jpg" alt="蜜桃傳媒">
                 </div>
-                <div class="app-title">蜜桃传媒</div>
-                <div class="btn-enter-site">立即进入</div>
+                <div class="app-title">蜜桃傳媒</div>
+                <div class="btn-enter-site">立即進入</div>
             </a>
 
             <a href="https://swa9.xyz/YFsV3" target="_blank" class="nav-item-card">
-                <div class="recommend-tag">人气</div>
+                <div class="recommend-tag">人氣</div>
                 <div class="app-icon-wrap">
-                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E5%85%AC%E9%9B%9E%E4%BF%B1%E6%A8%82%E9%83%A8.jpg" alt="公鸡俱乐部">
+                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E5%85%AC%E9%9B%9E%E4%BF%B1%E6%A8%82%E9%83%A8.jpg" alt="公雞俱樂部">
                 </div>
-                <div class="app-title">公鸡俱乐部</div>
-                <div class="btn-enter-site">立即进入</div>
+                <div class="app-title">公雞俱樂部</div>
+                <div class="btn-enter-site">立即進入</div>
             </a>
 
         </div>
@@ -586,23 +588,22 @@
         <footer>
             <div class="footer-container">
                 <div class="footer-promo-text">
-                    新用户输入推荐码 
-                    <div class="nav-copy-box" onclick="copyNavCode()" title="点击一键复制">
+                    新用戶輸入推薦碼 
+                    <div class="nav-copy-box" onclick="copyNavCode()" title="點擊一鍵複製">
                         <span class="nav-code-text" id="targetCode">10TV2026</span>
                         <i class="fa-regular fa-copy"></i>
                     </div> 
-                    绑定手机领取 💎 1,000 钻石
-                    <span class="fomo-seats-badge">🔥 数量有限，抢完截止！</span>
+                    綁定手機領取 💎 1,000 鑽石
+                    <span class="fomo-seats-badge">🔥 數量有限，搶完截止！</span>
                 </div>
             </div>
         </footer>
 
     </div>
 
-    <div id="toast" class="toast-popup">✓ 推荐码已复制成功</div>
+    <div id="toast" class="toast-popup">✓ 推薦碼已複製成功</div>
 
     <script>
-        // 一键复制功能
         function copyNavCode() {
             const text = document.getElementById('targetCode').innerText;
             navigator.clipboard.writeText(text).then(() => {
@@ -612,7 +613,7 @@
             });
         }
 
-        // 自动轮播图系统
+        // 自動輪播圖系統
         let currentSlideIndex = 0;
         const slides = document.querySelectorAll('.slide-item');
         const totalSlides = slides.length;
