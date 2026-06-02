@@ -74,14 +74,12 @@
             display: block;
         }
 
-        /* --------------------------------------------------
-           1. 核心修正：大聲公 Icon 防壓字高流暢跑馬燈
-        ----------------------------------------------------- */
+        /* 大聲公固定防壓字高流暢跑馬燈 */
         .announcement-bar {
             background-color: rgba(255, 0, 127, 0.06);
             border: 1px solid rgba(255, 0, 127, 0.15);
             margin: 12px;
-            padding: 8px 0; /* 左右移除 padding，由內部遮罩控制 */
+            padding: 8px 0; 
             border-radius: 6px;
             display: flex;
             align-items: center;
@@ -89,20 +87,18 @@
             overflow: hidden;
         }
 
-        /* 固定在最左側的大聲公防護外殼 */
         .announcement-icon-label {
-            background-color: #000000; /* 使用遮罩黑底擋在最前方，防止文字穿透 */
+            background-color: #000000; 
             color: var(--neon-pink-main);
             font-size: 0.9rem;
             padding: 0 12px;
             display: flex;
             align-items: center;
             height: 100%;
-            z-index: 10; /* 確保層級最高，文字滾動時會完美隱沒在它後方 */
-            box-shadow: 4px 0 10px #000000; /* 給予微弱陰影，讓文字淡出感更自然 */
+            z-index: 10; 
+            box-shadow: 4px 0 10px #000000; 
         }
 
-        /* 跑馬燈可視滑動區域 */
         .marquee-window {
             width: 100%;
             overflow: hidden;
@@ -111,12 +107,11 @@
             align-items: center;
         }
 
-        /* 高流暢跑馬燈軌道（CSS3 GPU 硬體加速） */
         .marquee-track {
             display: inline-block;
             white-space: nowrap;
-            padding-left: 100%; /* 從可視視窗最右側進場 */
-            animation: smooth-marquee 22s linear infinite; /* 稍微拉長秒數，確保新長文案體感速度適中 */
+            padding-left: 100%; 
+            animation: smooth-marquee 22s linear infinite; 
             will-change: transform;
             font-weight: bold;
             font-size: 0.85rem;
@@ -124,12 +119,8 @@
         }
 
         @keyframes smooth-marquee {
-            0% {
-                transform: translate3d(0, 0, 0);
-            }
-            100% {
-                transform: translate3d(-100%, 0, 0);
-            }
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
         }
 
         .marquee-track span.highlight-pink {
@@ -211,7 +202,6 @@
             padding: 0 12px;
         }
 
-        /* 平時就看得到一格一格的微亮背景色與細邊框 */
         .nav-item-card {
             background-color: var(--bg-card-visible);
             border: 1px solid var(--border-color-visible);
@@ -226,7 +216,6 @@
             transition: all 0.2s ease-in-out;
         }
 
-        /* 指標指到時 */
         .nav-item-card:hover {
             background-color: #1d1d2a;
             border-color: var(--neon-pink-main);
@@ -234,7 +223,6 @@
             box-shadow: 0 6px 15px rgba(255, 0, 127, 0.35);
         }
 
-        /* 小標籤（角標）貼齊右上角 */
         .recommend-tag {
             position: absolute;
             top: 4px;
@@ -250,7 +238,6 @@
             box-shadow: 0 0 5px var(--neon-pink-main);
         }
 
-        /* 大圓角正方形外殼 */
         .app-icon-wrap {
             width: 100%;
             aspect-ratio: 1 / 1;
@@ -280,7 +267,6 @@
             width: 100%;
         }
 
-        /* 進入按鈕 */
         .btn-enter-site {
             width: 95%;
             padding: 4px 0;
@@ -300,14 +286,6 @@
             border-color: var(--neon-pink-main);
         }
 
-        /* 分隔線 */
-        .divider-line {
-            height: 1px;
-            background-color: #161622;
-            margin: 25px 12px;
-        }
-
-        /* 永遠懸浮固定且上下「加寬」加厚後的 Footer 區塊 */
         footer {
             position: fixed;        
             bottom: 0;
@@ -334,7 +312,6 @@
             line-height: 1.6;
         }
 
-        /* 一鍵複製框 */
         .nav-copy-box {
             display: inline-flex;
             align-items: center;
@@ -371,7 +348,6 @@
             font-weight: bold;
         }
 
-        /* 複製成功彈出提示 */
         .toast-popup {
             position: fixed;
             top: 30px;
@@ -417,10 +393,10 @@
 
         <div class="banner-slider-container">
             <a href="https://sw-move.com/Zd6Ah" target="_blank" class="slide-item active">
-                <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/BN-%E5%A5%B3%E5%A4%A7%E5%AD%B8%E7%94%9F%E7%9A%84%E7%BE%9E%E8%80%BB%E7%A7%98%E5%AF%86.gif" alt="女大學生的羞恥秘密">
+                <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/BN-%E5%A5%B3%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%9A%84%E7%BE%9E%E8%80%BB%E7%A7%98%E5%AF%86.gif" alt="女子圖鑑-072">
             </a>
             <a href="https://sw-move.com/X2IDt" target="_blank" class="slide-item">
-                <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/BN-%E7%BE%A5%E6%B6%A9%E9%82%B3%E5%AE%B6%E7%B4%A0%E4%BA%BA%E5%87%BA%E9%81%93%E4%BD%9C.gif" alt="羞澀鄰家系素人出道作">
+                <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/BN-%E7%BE%A5%E6%B6%A9%E9%82%B3%E5%AE%B6%E7%B3%BB%E7%B4%A0%E4%BA%BA%E5%87%BA%E9%81%93%E4%BD%9C.gif" alt="羞澀鄰家系素人出道作">
             </a>
             <a href="https://swa9.xyz/JR3w2" target="_blank" class="slide-item">
                 <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/BN-%E9%AB%98%E5%AD%A6%E5%8E%86%E8%B6%85%E7%BE%8E%E8%83%B8%E5%AD%A6%E9%9F%B8%E7%BE%8E%E5%A5%B3%EF%BC%81.gif" alt="女子圖鑑-072">
@@ -568,7 +544,7 @@
             <a href="https://sw-move.com/8L0Kw" target="_blank" class="nav-item-card">
                 <div class="recommend-tag">強推</div>
                 <div class="app-icon-wrap">
-                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E8%A3%9C%E6%A1%83%E5%82%B3%E5%AA%92%40peachmedia.jpg" alt="蜜桃傳媒">
+                    <img src="https://pub-b817e22edf6447beb72ee04f1adf2d70.r2.dev/10%20day%20tv/%E8%9C%9C%E6%A1%83%E5%82%B3%E5%AA%92%40peachmedia.jpg" alt="蜜桃傳媒">
                 </div>
                 <div class="app-title">蜜桃傳媒</div>
                 <div class="btn-enter-site">立即進入</div>
@@ -613,7 +589,6 @@
             });
         }
 
-        // 自動輪播圖系統
         let currentSlideIndex = 0;
         const slides = document.querySelectorAll('.slide-item');
         const totalSlides = slides.length;
